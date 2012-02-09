@@ -1,3 +1,16 @@
-This project is an example of building a WebDriver framework using Gradle and TestNG.
+This project is an example of building a WebDriver framework using Gradle and TestNG with InteliJ or Eclipse.
 
 It extends the basic tutorial found on the Selenium Wiki
+
+http://code.google.com/p/selenium/wiki/GettingStarted
+http://code.googles.com/p/selenium/wiki/PageObjects
+
+-- Creating the IDE project
+
+InteliJ
+cd ~/<checkout dir>/page-objects
+./gradlew idea
+
+Eclipse
+cd ~/<checkout dir>/page-objects
+./gradlew eclipse
