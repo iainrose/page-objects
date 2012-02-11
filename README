@@ -17,8 +17,7 @@ InteliJ
 cd ~/<checkout dir>/page-objects
 ./gradlew idea
 
-Open the generated page-objects.ipr file and you're good to go. All your dependencies will be automatically
-resolved and ready to use.
+Open the generated page-objects.ipr file and you're good to go. All your dependencies will be automatically resolved and ready to use.
 
 Eclipse
 cd ~/<checkout dir>/page-objects
