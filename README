@@ -11,7 +11,8 @@ There are a couple of key concepts demonstrated in this project that will help y
 - Abstracting the test setup into a BaseTest class
 - Using TestNG and Gradle to run the tests
 
--- Creating the IDE project
+Creating the IDE project
+------------------------
 
 InteliJ
 cd ~/<checkout dir>/page-objects
