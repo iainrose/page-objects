@@ -14,3 +14,22 @@ cd ~/<checkout dir>/page-objects
 Eclipse
 cd ~/<checkout dir>/page-objects
 ./gradlew eclipse
+
+-- Building the Page Objects
+
+You can use the PageFactory helper to define your locators but I prefer to store them as By objects.
+There are several reasons for this:
+
+- The WebElement will get looked up each time you use the locator which can help avoid stale elememt exceptions
+- You can use your locators in methods that assert the presence or absence of a WebElemnt (return driver.findElements(By.yourLocator)size() < 0)
+
+-- Running the tests using Gradle
+
+To run all tests
+./gradlew clean test
+
+To run only tests belonging to group 1 (as defined in the includegroup1 task in build.gradle)
+./gradlew clean includegroup1
+
+To run only tests not belonging to group 1 (as defined in the excludegroup1 task in build.gradle)
+./gradlew clean excludegroup1

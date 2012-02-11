@@ -16,7 +16,6 @@ public abstract class AbstractPageObject {
     public AbstractPageObject(WebDriver driver) {
         this.driver = driver;
         this.wait = (new WebDriverWait(driver, 30));
-//        PageFactory.initElements(driver, this);
         isLoaded();
     }
 
