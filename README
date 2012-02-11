@@ -1,4 +1,4 @@
-This project is an example of building a WebDriver framework using Gradle and TestNG with InteliJ or Eclipse.
+This project is an example of building a test automation framework using WebDriver w Java, TestNG, Gradle with InteliJ or Eclipse.
 
 It extends the basic tutorial found on the Selenium Wiki and runs a couple of tests against Stack Overflow.
 
