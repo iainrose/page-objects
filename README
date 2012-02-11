@@ -39,8 +39,8 @@ However, I prefer to store them as By objects
 
 There are several reasons for this:
 
-- The WebElement will get looked up each time you use the locator which can help avoid stale elememt exceptions
-- You can use your locators in methods that assert the presence or absence of a WebElemnt (return driver.findElements(By.yourLocator)size() < 0)
+- The WebElement will get looked up each time you use the locator which can help avoid stale element exceptions
+- You can use your locators in methods that assert the presence or absence of a WebElement (return driver.findElements(yourByObjectLocator)size() < 0)
 - Personally I think they look cleaner in the code
 
 -- Running the tests using Gradle
