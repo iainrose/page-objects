@@ -29,6 +29,8 @@ I find using a Test Driven (Test) Development approach works well here.
 - Create the Page Object Locators
 - Run the test and debug until it passes
 
+Note also that the tests don't know anything about WebDriver .... keep it that way!
+
 -- Building the Page Objects
 
 You can use the PageFactory helper to define your locators
@@ -40,7 +42,7 @@ However, I prefer to store them as By objects
 There are several reasons for this:
 
 - The WebElement will get looked up each time you use the locator which can help avoid stale element exceptions
-- You can use your locators in methods that assert the presence or absence of a WebElement (return driver.findElements(yourByObjectLocator)size() > 0)
+- You can reuse your locators in methods that assert the presence or absence of a WebElement (return driver.findElements(yourByObjectLocator)size() > 0)
 - Personally I think they look cleaner in the code
 
 -- Running the tests using Gradle
