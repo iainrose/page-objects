@@ -14,3 +14,15 @@ dependencies {
 test {
     useTestNG()
 }
+
+task includegroup1(type: Test) {
+    useTestNG() {
+        includeGroups 'group1'
+    }
+}
+
+task excludegroup1(type: Test) {
+    useTestNG() {
+        excludeGroups 'group1'
+    }
+}
