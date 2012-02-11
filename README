@@ -3,7 +3,7 @@ This project is an example of building a test automation framework using WebDriv
 It extends the basic tutorial found on the Selenium Wiki and runs a couple of tests against Stack Overflow.
 
 http://code.google.com/p/selenium/wiki/GettingStarted
-http://code.googles.com/p/selenium/wiki/PageObjects
+http://code.google.com/p/selenium/wiki/PageObjects
 
 There are a couple of key concepts demonstrated in this project that will help you get started
 
