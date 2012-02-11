@@ -53,3 +53,9 @@ To run only tests belonging to group 1 (as defined in the includegroup1 task in 
 
 To run only tests not belonging to group 1 (as defined in the excludegroup1 task in build.gradle)
 ./gradlew clean excludegroup1
+
+To run tests in Chrome
+./gradle clean test -DBROWSER=chrome
+
+To run tests in IE
+gradle.bat clean test -DBROWSER=internetExplorer
