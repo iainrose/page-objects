@@ -62,7 +62,6 @@ To run all tests (uses Firefox by default)
 ./gradlew clean test
 
 To run a single test class
-
 ./gradle clean test -Dtest.single="ExampleTest"
 
 To run only tests belonging to group 1 (as defined in the includegroup1 task in build.gradle)
