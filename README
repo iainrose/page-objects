@@ -17,9 +17,18 @@ InteliJ
 cd ~/<checkout dir>/page-objects
 ./gradlew idea
 
+Open the generated page-objects.ipr file and you're good to go. All your dependencies will be automatically
+resolved and ready to use.
+
 Eclipse
 cd ~/<checkout dir>/page-objects
 ./gradlew eclipse
+
+If you don't want to use Gradle you can also do this manually, as explained here by Simon Stewart aka The WebDriver guy.
+http://www.youtube.com/watch?v=Eft3qGFoqwE
+
+If you want to update the version of Selenium or TestNG you are using just update the version numbers in
+build.gradle and rerun the above commands to regenerate your project.
 
 -- Writing the Tests
 
@@ -44,6 +53,10 @@ There are several reasons for this:
 - The WebElement will get looked up each time you use the locator which can help avoid stale element exceptions
 - You can reuse your locators in methods that assert the presence or absence of a WebElement (return driver.findElements(yourByObjectLocator).size() > 0)
 - Personally I think they look cleaner in the code
+
+-- Running the tests via the IDE
+
+Right click on the test and select 'run' or 'debug'
 
 -- Running the tests using Gradle
 
