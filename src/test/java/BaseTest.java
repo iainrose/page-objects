@@ -19,7 +19,24 @@ public class BaseTest {
 
     @BeforeSuite(alwaysRun = true)
     public void suiteSetup() throws Exception {
-        driver = new FirefoxDriver();
+        if (BROWSER.equals("firefox")) {
+            driver = new FirefoxDriver();
+        }
+        else if (BROWSER.equals("chrome")) {
+            String path = "lib/chromedriver";
+            if (System.getProperty("os.name").contains("Windows")) {
+                path = "lib/chromedriver.exe";
+            }
+            System.setProperty("webdriver.chrome.driver", path);
+            driver = new ChromeDriver();
+        }
+        else if (BROWSER.equals("internetExplorer")) {
+            DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+            capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+            driver = new InternetExplorerDriver(capabilities);
+        } else {
+            throw new RuntimeException("Browser type unsupported");
+        }
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
