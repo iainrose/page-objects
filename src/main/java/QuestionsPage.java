@@ -4,24 +4,17 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-/**
- * Created by IntelliJ IDEA.
- * User: iainrose
- * Date: 12-02-10
- * Time: 9:04 PM
- * To change this template use File | Settings | File Templates.
- */
 public class QuestionsPage extends AbstractPageObject {
-    
+
     public QuestionsPage(WebDriver driver) {
         super(driver);
     }
-    
+
     @Override
     protected By getUniqueElement() {
         return By.cssSelector(".youarehere #nav-questions");
     }
-    
+
     By questionsTabSelectedLocator = By.cssSelector(".youarehere #nav-questions");
     By usersTabLocator = By.id("nav-users");
 

@@ -21,16 +21,14 @@ public class BaseTest {
     public void suiteSetup() throws Exception {
         if (BROWSER.equals("firefox")) {
             driver = new FirefoxDriver();
-        }
-        else if (BROWSER.equals("chrome")) {
+        } else if (BROWSER.equals("chrome")) {
             String path = "lib/chromedriver";
             if (System.getProperty("os.name").contains("Windows")) {
                 path = "lib/chromedriver.exe";
             }
             System.setProperty("webdriver.chrome.driver", path);
             driver = new ChromeDriver();
-        }
-        else if (BROWSER.equals("internetExplorer")) {
+        } else if (BROWSER.equals("internetExplorer")) {
             DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
             capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
             driver = new InternetExplorerDriver(capabilities);

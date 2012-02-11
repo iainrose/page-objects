@@ -1,7 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -24,14 +23,15 @@ public abstract class AbstractPageObject {
     protected abstract By getUniqueElement();
 
     protected void isLoaded() throws Error {
-        //Define a unique element for the page
+        //Define a list of WebElemnet that match the unique element locator for the page
         List<WebElement> uniqueElement = driver.findElements(getUniqueElement());
 
         // Assert that the unique element is present in the DOM
         Assert.assertTrue((uniqueElement.size() > 0),
                 "Unique Element \'" + getUniqueElement().toString() + "\' not found for " + this.getClass().getSimpleName());
 
-        // Wait until the unique element is present in the DOM and visible in the browser
+        // Wait until the unique element is  visible in the browser and ready to use. This helps make sure the page is
+        //loaded before the tests continue.
         wait.until(ExpectedConditions.visibilityOfElementLocated(getUniqueElement()));
     }
 

@@ -9,12 +9,12 @@ public class LandingPage extends AbstractPageObject {
     public LandingPage(WebDriver driver) {
         super(driver);
     }
-    
+
     @Override
     protected By getUniqueElement() {
         return By.cssSelector("div#hmenus");
     }
-    
+
     By menuBarLocator = By.cssSelector("div#hmenus");
     By questionsTabLocator = By.id("nav-questions");
 
@@ -23,7 +23,7 @@ public class LandingPage extends AbstractPageObject {
         questionsTab.click();
         return new QuestionsPage(driver);
     }
-    
+
     public Boolean isQuestionsTabDisplayed() {
         List<WebElement> questionsTab = driver.findElements(questionsTabLocator);
         return questionsTab.size() > 0;
