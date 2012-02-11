@@ -58,6 +58,9 @@ Right click on the test and select 'run' or 'debug'
 
 -- Running the tests using Gradle
 
+Unless you have Gradle installed, you'll need to use the Gradle wrapper which is included in the project
+./gradlew or gradle.bat on Windows
+
 To run all tests (uses Firefox by default)
 ./gradlew clean test
 

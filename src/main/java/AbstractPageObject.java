@@ -18,20 +18,20 @@ public abstract class AbstractPageObject {
         isLoaded();
     }
 
-    // Each page object must implement this method to return the identifier of a unique WebElement on that page
+    // Each page object must implement this method to return the identifier of a unique WebElement on that page.
     // The presence of this unique element will be used to assert that the expected page has finished loading
     protected abstract By getUniqueElement();
 
     protected void isLoaded() throws Error {
-        //Define a list of WebElemnet that match the unique element locator for the page
+        //Define a list of WebElements that match the unique element locator for the page
         List<WebElement> uniqueElement = driver.findElements(getUniqueElement());
 
         // Assert that the unique element is present in the DOM
         Assert.assertTrue((uniqueElement.size() > 0),
                 "Unique Element \'" + getUniqueElement().toString() + "\' not found for " + this.getClass().getSimpleName());
 
-        // Wait until the unique element is  visible in the browser and ready to use. This helps make sure the page is
-        //loaded before the tests continue.
+        // Wait until the unique element is visible in the browser and ready to use. This helps make sure the page is
+        // loaded before the next step of the tests continue.
         wait.until(ExpectedConditions.visibilityOfElementLocated(getUniqueElement()));
     }
 
