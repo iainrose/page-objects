@@ -1,9 +1,15 @@
 This project is an example of building a WebDriver framework using Gradle and TestNG with InteliJ or Eclipse.
 
-It extends the basic tutorial found on the Selenium Wiki
+It extends the basic tutorial found on the Selenium Wiki and runs a couple of tests against StackOverFlow.
 
 http://code.google.com/p/selenium/wiki/GettingStarted
 http://code.googles.com/p/selenium/wiki/PageObjects
+
+There are a couple of kep concepts that will help you get started
+
+- Switching the navigation of the tests from one page object to another
+- Abstracting the test setup into a BaseTest class
+- Using TestNG and Gradle to run the tests
 
 -- Creating the IDE project
 
@@ -14,6 +20,14 @@ cd ~/<checkout dir>/page-objects
 Eclipse
 cd ~/<checkout dir>/page-objects
 ./gradlew eclipse
+
+-- Writing the Tests
+
+I find using a Test Driven (Test) Development approach works well here.
+- Write the test
+- Create the Page Object Methods
+- Create the Page Object Locators
+- Run the test and debug until it passes
 
 -- Building the Page Objects
 
