@@ -5,7 +5,7 @@ It extends the basic tutorial found on the Selenium Wiki and runs a couple of te
 http://code.google.com/p/selenium/wiki/GettingStarted
 http://code.googles.com/p/selenium/wiki/PageObjects
 
-There are a couple of kep concepts that will help you get started
+There are a couple of key concepts demonstrated in this project that will help you get started
 
 - Switching the navigation of the tests from one page object to another
 - Abstracting the test setup into a BaseTest class
