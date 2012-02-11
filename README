@@ -59,3 +59,8 @@ To run tests in Chrome
 
 To run tests in IE
 gradle.bat clean test -DBROWSER=internetExplorer
+
+
+
+All and any feedback welcome and appreciated, I'm still learning too.
+@iainrose
