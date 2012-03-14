@@ -16,7 +16,7 @@ public class BaseTest {
 
     protected static final String WEB_SERVER = System.getProperty("WEB_SERVER", "http://stackoverflow.com/");
     protected static final String BROWSER = System.getProperty("BROWSER", "firefox");
-    protected static final boolean REMOTE_DRIVER = Boolean.valueOf(System.getProperty("REMOTE_DRIVER", "true"));
+    protected static final boolean REMOTE_DRIVER = Boolean.valueOf(System.getProperty("REMOTE_DRIVER", "false"));
     protected static final String SELENIUM_HOST = System.getProperty("SELENIUM_HOST", "10.0.1.20");
     protected static final int SELENIUM_PORT = Integer.valueOf(System.getProperty("SELENIUM_PORT", "4444"));
 
