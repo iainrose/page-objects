@@ -7,12 +7,13 @@ repositories {
 }
 
 dependencies {
-    compile "org.seleniumhq.selenium:selenium-java:2.19.0"
+    compile "org.seleniumhq.selenium:selenium-java:2.15.0"
     compile "org.testng:testng:6.3.1"
 }
 
 test {
     useTestNG()
+    maxParallelForks = 20
 }
 
 task includegroup1(type: Test) {

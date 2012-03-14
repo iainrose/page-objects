@@ -1,9 +1,9 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ExampleTest extends BaseTest {
+public class ExampleTestNew extends BaseTest {
 
-    public ExampleTest() {
+    public ExampleTestNew() {
         super();
     }
 
