@@ -7,23 +7,32 @@ repositories {
 }
 
 dependencies {
-    compile "org.seleniumhq.selenium:selenium-java:2.15.0"
+    compile "org.seleniumhq.selenium:selenium-java:2.21.0"
     compile "org.testng:testng:6.3.1"
 }
 
 test {
     useTestNG()
     maxParallelForks = 20
+    systemProperties = [
+            BROWSER: System.getProperty('BROWSER', 'firefox')
+    ]
 }
 
 task includegroup1(type: Test) {
     useTestNG() {
         includeGroups 'group1'
     }
+    systemProperties = [
+            BROWSER: System.getProperty('BROWSER', 'firefox')
+    ]
 }
 
 task excludegroup1(type: Test) {
     useTestNG() {
         excludeGroups 'group1'
     }
+    systemProperties = [
+            BROWSER: System.getProperty('BROWSER', 'firefox')
+    ]
 }
