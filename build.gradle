@@ -13,7 +13,7 @@ dependencies {
 
 test {
     useTestNG()
-    maxParallelForks = 20
+    maxParallelForks = 4
     systemProperties = [
             BROWSER: System.getProperty('BROWSER', 'firefox')
     ]
