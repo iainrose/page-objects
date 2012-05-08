@@ -11,28 +11,21 @@ dependencies {
     compile "org.testng:testng:6.3.1"
 }
 
+tasks.withType(Test) { systemProperty 'BROWSER', System.getProperty('BROWSER', 'firefox') }
+
 test {
     useTestNG()
     maxParallelForks = 4
-    systemProperties = [
-            BROWSER: System.getProperty('BROWSER', 'firefox')
-    ]
 }
 
 task includegroup1(type: Test) {
     useTestNG() {
         includeGroups 'group1'
     }
-    systemProperties = [
-            BROWSER: System.getProperty('BROWSER', 'firefox')
-    ]
 }
 
 task excludegroup1(type: Test) {
     useTestNG() {
         excludeGroups 'group1'
     }
-    systemProperties = [
-            BROWSER: System.getProperty('BROWSER', 'firefox')
-    ]
 }
