@@ -25,7 +25,7 @@ public class BaseTest {
     public static RemoteWebDriver driver;
 
     @BeforeClass(alwaysRun = true)
-    public void suiteSetup() throws MalformedURLException {
+    public void setupWebDriver() throws MalformedURLException {
         if (REMOTE_DRIVER) {
             setupRemoteDriver();
             driver.setFileDetector(new LocalFileDetector());
