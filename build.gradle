@@ -7,22 +7,14 @@ repositories {
 }
 
 dependencies {
-    compile "org.seleniumhq.selenium:selenium-java:2.21.0"
+    compile "org.seleniumhq.selenium:selenium-java:2.25.0"
     compile "org.testng:testng:6.3.1"
-    testCompile "com.google.inject:guice:3.0"
-    testCompile("org.uncommons:reportng:1.1.2") {
-        exclude group: "org.testng", module: "testng"
-    }
 }
 
 tasks.withType(Test) {
     useTestNG()
-    systemProperty 'BROWSER', System.getProperty('BROWSER', 'firefox')
-    maxParallelForks = 4
-        options {
-            listeners << 'org.uncommons.reportng.HTMLReporter'
-            listeners << 'org.uncommons.reportng.JUnitXMLReporter'
-        }
+    systemProperties = System.getProperties()
+    maxParallelForks = 2
 }
 
 task includegroup1(type: Test) {
@@ -35,4 +27,9 @@ task excludegroup1(type: Test) {
     useTestNG() {
         excludeGroups 'group1'
     }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.1'
+}
+
 }
