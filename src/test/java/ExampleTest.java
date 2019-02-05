@@ -8,16 +8,17 @@ public class ExampleTest extends BaseTest {
     }
 
     @Test(groups = {"group1"})
-    public void clickQuestionsTest() {
+    public void clickSchedulesMenu() {
         LandingPage landingPage = new LandingPage(driver);
-        QuestionsPage questionsPage = landingPage.clickQuestionsTab();
-        Assert.assertTrue(questionsPage.isUsersTabDisplayed());
+        SchedulesPage schedulesPage = landingPage.clickSchedulesMenu();
+        Assert.assertTrue(schedulesPage.isSchedulesMenuDisplayed());
     }
 
-    @Test(groups = {"group2"})
-    public void isLogoDisplayedTest() {
+    @Test(groups = {"group1"})
+    public void verifySchedulesMenuDisplayed() {
         LandingPage landingPage = new LandingPage(driver);
-        Assert.assertTrue(landingPage.isQuestionsTabDisplayed());
+        Assert.assertTrue(landingPage.isSchedulesMenuDisplayed());
     }
 
 }
+

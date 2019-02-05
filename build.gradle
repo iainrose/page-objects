@@ -7,8 +7,8 @@ repositories {
 }
 
 dependencies {
-    compile "org.seleniumhq.selenium:selenium-java:2.25.0"
-    compile "org.testng:testng:6.3.1"
+    compile "org.seleniumhq.selenium:selenium-java:3.141.59"
+    compile "org.testng:testng:6.10"
 }
 
 tasks.withType(Test) {
@@ -27,9 +27,5 @@ task excludegroup1(type: Test) {
     useTestNG() {
         excludeGroups 'group1'
     }
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.1'
-}
 
 }

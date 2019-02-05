@@ -16,8 +16,8 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    protected static final String WEB_SERVER = System.getProperty("WEB_SERVER", "http://stackoverflow.com/");
-    protected static final String BROWSER = System.getProperty("BROWSER", "firefox");
+    protected static final String WEB_SERVER = System.getProperty("WEB_SERVER", "http://bcferries.com/");
+    protected static final String BROWSER = System.getProperty("BROWSER", "chrome");
     protected static final boolean REMOTE_DRIVER = Boolean.valueOf(System.getProperty("REMOTE_DRIVER", "false"));
     protected static final String SELENIUM_HOST = System.getProperty("SELENIUM_HOST", "localhost");
     protected static final int SELENIUM_PORT = Integer.valueOf(System.getProperty("SELENIUM_PORT", "4444"));
@@ -36,21 +36,29 @@ public class BaseTest {
     }
 
     private void setupLocalDriver() {
-        if (BROWSER.equals("firefox")) {
-            driver = new FirefoxDriver();
-        } else if (BROWSER.equals("chrome")) {
-            String path = "lib/chromedriver";
-            if (System.getProperty("os.name").contains("Windows")) {
-                path = "lib/chromedriver.exe";
-            }
-            System.setProperty("webdriver.chrome.driver", path);
-            driver = new ChromeDriver();
-        } else if (BROWSER.equals("internetExplorer")) {
-            DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-            capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-            driver = new InternetExplorerDriver(capabilities);
-        } else {
-            throw new RuntimeException("Browser type unsupported");
+
+        switch (BROWSER) {
+            case "firefox":
+                String geckoDriverPath = "lib/geckodriver";
+                System.setProperty("webdriver.gecko.driver", geckoDriverPath);
+                driver = new FirefoxDriver();
+                break;
+            case "chrome":
+                String chromeDriverPath;
+                if (System.getProperty("os.name").contains("Windows")) {
+                    chromeDriverPath = "lib/chromedriver.exe";
+                } else {
+                    chromeDriverPath = "lib/chromedriver";
+                }
+                System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+                driver = new ChromeDriver();
+                break;
+            case "internetExplorer":
+                DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+                capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+                driver = new InternetExplorerDriver(capabilities);
+            default:
+                throw new RuntimeException("Browser type unsupported");
         }
     }
 

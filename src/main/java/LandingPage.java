@@ -1,6 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -10,22 +12,35 @@ public class LandingPage extends AbstractPageObject {
         super(driver);
     }
 
+    By menuBarLocator = By.cssSelector("#primary-links");
+    By schedulesMenuLocator = By.className("Schedules");
+
     @Override
     protected By getUniqueElement() {
-        return By.cssSelector("div#hmenus");
+        return By.cssSelector("head title");
     }
 
-    By menuBarLocator = By.cssSelector("div#hmenus");
-    By questionsTabLocator = By.id("nav-questions");
+    protected void isLoaded() throws Error {
+        //Define a list of WebElements that match the unique element locator for the page
+        List<WebElement> uniqueElement = driver.findElements(getUniqueElement());
 
-    public QuestionsPage clickQuestionsTab() {
-        WebElement questionsTab = driver.findElement(questionsTabLocator);
-        questionsTab.click();
-        return new QuestionsPage(driver);
+        // Assert that the unique element is present in the DOM
+        Assert.assertTrue((uniqueElement.size() > 0),
+                "Unique Element \'" + getUniqueElement().toString() + "\' not found for " + this.getClass().getSimpleName());
+
+        // Wait until the unique element is visible in the browser and ready to use. This helps make sure the page is
+        // loaded before the next step of the tests continue.
+        wait.until(ExpectedConditions.titleContains("Home"));
     }
 
-    public Boolean isQuestionsTabDisplayed() {
-        List<WebElement> questionsTab = driver.findElements(questionsTabLocator);
-        return questionsTab.size() > 0;
+    public SchedulesPage clickSchedulesMenu() {
+        WebElement SchedulesMenu = driver.findElement(schedulesMenuLocator);
+        SchedulesMenu.click();
+        return new SchedulesPage(driver);
+    }
+
+    public Boolean isSchedulesMenuDisplayed() {
+        List<WebElement> schedulesMenu = driver.findElements(schedulesMenuLocator);
+        return schedulesMenu.size() > 0;
     }
 }
