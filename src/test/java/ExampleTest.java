@@ -8,16 +8,9 @@ public class ExampleTest extends BaseTest {
     }
 
     @Test(groups = {"group1"})
-    public void clickSchedulesMenu() {
+    public void verifyGoogleSearchDisplayed() {
         LandingPage landingPage = new LandingPage(driver);
-        SchedulesPage schedulesPage = landingPage.clickSchedulesMenu();
-        Assert.assertTrue(schedulesPage.isSchedulesMenuDisplayed());
-    }
-
-    @Test(groups = {"group1"})
-    public void verifySchedulesMenuDisplayed() {
-        LandingPage landingPage = new LandingPage(driver);
-        Assert.assertTrue(landingPage.isSchedulesMenuDisplayed());
+        Assert.assertTrue(landingPage.isSearchButtonDisplayed());
     }
 
 }

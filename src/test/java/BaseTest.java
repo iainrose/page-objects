@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    protected static final String WEB_SERVER = System.getProperty("WEB_SERVER", "http://bcferries.com/");
+    protected static final String WEB_SERVER = System.getProperty("WEB_SERVER", "http://google.com/");
     protected static final String BROWSER = System.getProperty("BROWSER", "chrome");
     protected static final boolean REMOTE_DRIVER = Boolean.valueOf(System.getProperty("REMOTE_DRIVER", "false"));
     protected static final String SELENIUM_HOST = System.getProperty("SELENIUM_HOST", "localhost");
